@@ -1,0 +1,15 @@
+﻿@model FilmsCatalog.Models.FilmViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h5>Информация о фильме</h5>
+<hr />
+
+
+@await Html.PartialAsync("FilmCard", Model)
+@if (Model.IsCurrentUserPosted)
+{
+    <a asp-action="Edit" asp-route-id="@Model.Id" asp-route-pageNumber="@Model.PageNumber">Редактировать |</a>
+}
+<a asp-action="Index" asp-route-pageNumber="@Model.PageNumber">Перейти в каталог</a>

@@ -1,0 +1,18 @@
+﻿@model FilmsCatalog.Models.FilmViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h5>Вы действительно хотите удалить информацию о фильме ?</h5>
+<hr />
+@await Html.PartialAsync("FilmCard", Model)
+<hr />
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="PageNumber" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <p>
+        <a asp-action="Index" asp-route-pageNumber="@Model.PageNumber">Перейти в каталог</a>
+    </p>
+</form>

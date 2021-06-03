@@ -1,0 +1,23 @@
+﻿@model FilmsCatalog.Models.FilmViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h5>Редактируйте информацию о фильме</h5>
+<hr />
+<form asp-action="Edit" enctype="multipart/form-data">
+    @await Html.PartialAsync("FilmCard", Model)
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index" asp-route-pageNumber="@Model.PageNumber">Перейти в каталог</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
